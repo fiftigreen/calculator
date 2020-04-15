@@ -1,0 +1,80 @@
+//обнуление стилей
+@import "__nullstyle";
+
+$body_wigth: 500px;
+$body_height: 700px;
+$input_heght: 100px;
+$bfontSize: 50px;
+
+.main {
+  width: $body_wigth;
+  height: $body_height;
+  background-color: black;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+
+  .main__result {
+    width: $body_wigth;
+    height: $input_heght;
+    padding: 10px;
+    border: 1px solid black;
+    text-align: right;
+    font-size: 50px;
+  }
+
+  .button-contain {
+    display: grid;
+    grid-template-areas:
+      "bPercent bC bBack bDivision"
+      "b7 b8 b9 bMultiplication"
+      "b4 b5 b6 bPlus"
+      "b1 b2 b3 bMinus"
+      "bPlusMinus b0 bPoint bResult";
+    grid-template-columns: 1fr 1fr 1fr 1fr; //колоннки
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr; //строчки
+    height: $body_height - $input_heght;
+
+    button {
+      font-size: $bfontSize;
+      border: 1px solid black;
+    }
+
+    @for $i from 0 through 9 {
+      .button-contain__button-#{$i} {
+        grid-area: b + $i;
+      }
+    }
+    .button-contain__button-plusMinus {
+      grid-area: bPlusMinus;
+    }
+
+    .button-contain__button-point {
+      grid-area: bPoint;
+    }
+    .button-contain__button-result {
+      grid-area: bResult;
+    }
+    .button-contain__button-minus {
+      grid-area: bMinus;
+    }
+    .button-contain__button-plus {
+      grid-area: bPlus;
+    }
+    .button-contain__button-multiplication {
+      grid-area: bMultiplication;
+    }
+    .button-contain__button-percent {
+      grid-area: bPercent;
+    }
+    .button-contain__button-c {
+      grid-area: bC;
+    }
+    .button-contain__button-back {
+      grid-area: bBack;
+    }
+    .button-contain__button-division {
+      grid-area: bDivision;
+    }
+  }
+}
